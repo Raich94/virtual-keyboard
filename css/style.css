@@ -1,0 +1,233 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    width: 704px;
+    margin: 0 auto;
+
+    /* border: 1px solid red; */
+}
+.hidden {
+    display: none;
+}
+.title {
+    text-align: center;
+    color: #444444;
+}
+.title a {
+    color: #444444;
+}
+.textarea {
+    width: 100%;
+}
+.keyboard {
+    background-color: #888888;
+    border: 3px solid #222222;
+    border-radius: 5px;
+    padding: 5px 5px 0;
+}
+.keyboard__row {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 5px;
+}
+.keyboard__key {
+    width: 40px;
+    height: 40px;
+    background-color: #444444;
+    border-radius: 3px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    transition: 0.3s;
+}
+.keyboard__key:hover {
+    background-color: aquamarine;
+}
+.en {
+}
+.ru {
+}
+.lower {
+}
+.upper {
+}
+.caps {
+}
+.shift_caps {
+}
+
+
+
+
+.Backquote {
+}
+.Digit1 {
+}
+.Digit2 {
+}
+.Digit3 {
+}
+.Digit4 {
+}
+.Digit5 {
+}
+.Digit6 {
+}
+.Digit7 {
+}
+.Digit8 {
+}
+.Digit9 {
+}
+.Digit0 {
+}
+.Minus {
+}
+.Equal {
+}
+.Backspace {
+    width: 100px;
+    background-color: #000000;
+}
+
+.Tab {
+    width: 50px;
+    background-color: #000000;
+}
+.KeyQ {
+}
+.KeyW {
+}
+.KeyE {
+}
+.KeyR {
+}
+.KeyT {
+}
+.KeyY {
+}
+.KeyU {
+}
+.KeyI {
+}
+.KeyO {
+}
+.KeyP {
+}
+.BracketLeft {
+}
+.BracketRight {
+}
+.Backslash {
+}
+.Delete {
+    width: 44px;
+    background-color: #000000;
+}
+
+.CapsLock {
+    width: 100px;
+    background-color: #000000;
+}
+.KeyA {
+}
+.KeyS {
+}
+.KeyD {
+}
+.KeyF {
+}
+.KeyG {
+}
+.KeyH {
+}
+.KeyJ {
+}
+.KeyK {
+}
+.KeyL {
+}
+.Semicolon {
+}
+.Quote {
+}
+.Enter {
+    width: 86px;
+    background-color: #000000;
+}
+
+
+
+.ShiftLeft {
+    width: 100px;
+    background-color: #000000;
+}
+.KeyZ {
+}
+.KeyX {
+}
+.KeyC {
+}
+.KeyV {
+}
+.KeyB {
+}
+.KeyN {
+}
+.KeyM {
+}
+.Comma {
+}
+.Period {
+}
+.Slash {
+}
+.ArrowUp {
+    background-color: #000000;
+}
+.ShiftRight {
+    width: 86px;
+    background-color: #000000;
+}
+
+
+.ControlLeft {
+    background-color: #000000;
+}
+.MetaLeft {
+    background-color: #000000;
+}
+.AltLeft {
+    background-color: #000000;
+}
+.Space {
+    width: 325px;
+}
+.AltRight {
+    background-color: #000000;
+}
+.ArrowLeft {
+    background-color: #000000;
+}
+.ArrowDown {
+    background-color: #000000;
+}
+.ArrowRight {
+    background-color: #000000;
+}
+.ControlRight {
+    background-color: #000000;
+}
+
+.description {
+    text-align: center;
+    margin: 5px 0;
+}
+.language {
+    text-align: center;
+}
