@@ -21,6 +21,7 @@
 }
 .textarea {
     width: 100%;
+    font-size: 18px;
 }
 .keyboard {
     background-color: #888888;
@@ -43,11 +44,17 @@
     justify-content: center;
     align-items: center;
     color: #ffffff;
-    transition: 0.3s;
+    transition: 0.1s;
 }
 .keyboard__key:hover {
     background-color: aquamarine;
 }
+.keyboard__key:active {
+    background-color: #ab1515;
+    transform: scale(0.93, 0.93);
+}
+
+
 .en {
 }
 .ru {
@@ -230,4 +237,12 @@
 }
 .language {
     text-align: center;
+}
+
+
+
+
+._active {
+    background-color: #ab1515;
+    transform: scale(0.93, 0.93);
 }
