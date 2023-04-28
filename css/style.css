@@ -46,13 +46,13 @@
     color: #ffffff;
     transition: 0.1s;
 }
-.keyboard__key:hover {
+/* .keyboard__key:hover {
     background-color: aquamarine;
 }
 .keyboard__key:active {
     background-color: #ab1515;
     transform: scale(0.93, 0.93);
-}
+} */
 
 
 .en {
@@ -97,12 +97,12 @@
 }
 .Equal {
 }
-.Backspace {
+.keyboard__key.Backspace {
     width: 100px;
     background-color: #000000;
 }
 
-.Tab {
+.keyboard__key.Tab {
     width: 50px;
     background-color: #000000;
 }
@@ -132,12 +132,12 @@
 }
 .Backslash {
 }
-.Delete {
+.keyboard__key.Delete {
     width: 44px;
     background-color: #000000;
 }
 
-.CapsLock {
+.keyboard__key.CapsLock {
     width: 100px;
     background-color: #000000;
 }
@@ -163,14 +163,14 @@
 }
 .Quote {
 }
-.Enter {
+.keyboard__key.Enter {
     width: 86px;
     background-color: #000000;
 }
 
 
 
-.ShiftLeft {
+.keyboard__key.ShiftLeft {
     width: 100px;
     background-color: #000000;
 }
@@ -197,25 +197,25 @@
 .ArrowUp {
     background-color: #000000;
 }
-.ShiftRight {
+.keyboard__key.ShiftRight {
     width: 86px;
     background-color: #000000;
 }
 
 
-.ControlLeft {
+.keyboard__key.ControlLeft {
     background-color: #000000;
 }
-.MetaLeft {
+.keyboard__key.MetaLeft {
     background-color: #000000;
 }
-.AltLeft {
+.keyboard__key.AltLeft {
     background-color: #000000;
 }
 .Space {
     width: 325px;
 }
-.AltRight {
+.keyboard__key.AltRight {
     background-color: #000000;
 }
 .ArrowLeft {
@@ -227,7 +227,7 @@
 .ArrowRight {
     background-color: #000000;
 }
-.ControlRight {
+.keyboard__key.ControlRight {
     background-color: #000000;
 }
 
@@ -241,6 +241,16 @@
 
 
 
+
+
+
+.keyboard__key:hover {
+    background-color: aquamarine;
+}
+.keyboard__key:active {
+    background-color: #ab1515;
+    transform: scale(0.93, 0.93);
+}
 
 ._active {
     background-color: #ab1515;
