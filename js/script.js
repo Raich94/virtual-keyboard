@@ -1,6 +1,3 @@
-// document.addEventListener('keydown', function(event) {
-//     console.log(`${event.code}, ${event.key}`)
-// });
 
 const outputField = document.querySelector('.textarea');
 const keyboard = document.querySelector('.keyboard');
@@ -12,9 +9,49 @@ const capsShift = document.querySelectorAll('.shift_caps');
 const ru = document.querySelectorAll('.ru');
 const en = document.querySelectorAll('.en');
 
-const key = document.querySelectorAll('.en');
 
-// key.forEach(el => el.childNodes)
+let isEn = true;
+
+getSettings();
+function changeLanguage() {
+    if (isEn) {
+        ru.forEach(el => el.classList.remove('hidden'));
+        en.forEach(el => el.classList.add('hidden'));
+        isEn = false;
+    } else {
+        ru.forEach(el => el.classList.add('hidden'));
+        en.forEach(el => el.classList.remove('hidden'));
+        isEn = true;
+    }
+    localStorage.setItem('language', JSON.stringify(isEn));
+}
+changeLanguage()
+
+
+// function getCarriageNumber() {
+//     let carriageNumber;
+//     outputField.addEventListener("keydown", function () {
+//         carriageNumber = this.selectionStart;
+//     })
+//     return carriageNumber
+// }
+// console.log(getCarriageNumber())
+
+let carriageNumber;
+let beforeCarriage = '';
+let afterCarriage = '';
+outputField.addEventListener ("click", function () {
+    carriageNumber = this.selectionStart;
+    console.log(carriageNumber)
+    beforeCarriage = outputField.value.slice(0, carriageNumber);
+    afterCarriage = outputField.value.slice(carriageNumber, outputField.value.length);
+    console.log(beforeCarriage);
+    console.log(afterCarriage);
+});
+
+
+
+
 
 
 keyboard.addEventListener('click', function(event) {
@@ -22,7 +59,9 @@ keyboard.addEventListener('click', function(event) {
         console.log(event.target.innerText)
 
         if (event.target.classList.contains('Tab')) {
-            outputField.value += '    ';
+            // outputField.value += '    ';
+            beforeCarriage += '    ';
+            outputField.value = beforeCarriage + afterCarriage;
         } else if (event.target.classList.contains('CapsLock')) {
             document.querySelector('.CapsLock').classList.toggle('_active');
             if (document.querySelector('.CapsLock').classList.contains('_active')) {
@@ -32,8 +71,6 @@ keyboard.addEventListener('click', function(event) {
                 caps.forEach(el => el.classList.add('hidden'));
                 lowerCase.forEach(el => el.classList.remove('hidden'));
             }
-            // caps.forEach(el => el.classList.toggle('hidden'));
-            // lowerCase.forEach(el => el.classList.toggle('hidden'));
             capsShift.forEach(el => el.classList.add('hidden'));
             upperCase.forEach(el => el.classList.add('hidden'));
             outputField.value;
@@ -42,13 +79,20 @@ keyboard.addEventListener('click', function(event) {
         } else if (event.target.classList.contains('MetaLeft') || event.target.classList.contains('AltRight') || event.target.classList.contains('ControlRight') || event.target.classList.contains('ControlLeft') || event.target.classList.contains('AltLeft')) {
             outputField.value;
         } else if (event.target.classList.contains('Backspace')) {
-            outputField.value = outputField.value.slice(0, outputField.value.length - 1);
+            // outputField.value = outputField.value.slice(0, outputField.value.length - 1);
+            beforeCarriage = beforeCarriage.slice(0, beforeCarriage.length - 1);
+            outputField.value = beforeCarriage + afterCarriage;
         } else if (event.target.classList.contains('Enter')) {
-            outputField.value += '\n';
+            // outputField.value += '\n';
+            beforeCarriage += '\n';
+            outputField.value = beforeCarriage + afterCarriage;
         } else if (event.target.classList.contains('Delete')) {
-            outputField.value;
+            afterCarriage = afterCarriage.slice(1, afterCarriage.length);
+            outputField.value = beforeCarriage + afterCarriage;
         } else {
-            outputField.value += event.target.innerText;
+            // outputField.value += event.target.innerText;
+            beforeCarriage += event.target.innerText;
+            outputField.value = beforeCarriage + afterCarriage;
         }
     }
 })
@@ -114,8 +158,7 @@ document.addEventListener('keydown', function(event) {
             upperCase.forEach(el => el.classList.add('hidden'));
         }
     } else if (event.ctrlKey && event.altKey) {
-        ru.forEach(el => el.classList.toggle('hidden'));
-        en.forEach(el => el.classList.toggle('hidden'));
+        changeLanguage()
     }
      else if (event.code == 'MetaLeft' || event.code == 'AltRight' || event.key == 'Control' || event.key == 'Alt') {
         outputField.value;
@@ -150,3 +193,11 @@ document.addEventListener('keyup', function(event) {
         }
     }
 })
+
+function getSettings() { //получаю из хранилища
+    const localStorageLanguage = localStorage.getItem('language');
+    if (localStorageLanguage) {
+        isEn = JSON.parse(localStorageLanguage);
+        changeLanguage()
+    }
+}
