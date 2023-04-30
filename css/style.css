@@ -248,11 +248,13 @@
     background-color: aquamarine;
 }
 .keyboard__key:active {
-    background-color: #ab1515;
+    /* background-color: #ab1515; */
     transform: scale(0.93, 0.93);
+    border-radius: 20%;
 }
 
 ._active {
-    background-color: #ab1515;
+    /* background-color: #ab1515; */
     transform: scale(0.93, 0.93);
+    border-radius: 20%;
 }

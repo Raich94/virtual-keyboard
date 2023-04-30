@@ -1,16 +1,70 @@
-
 const outputField = document.querySelector('.textarea');
 const keyboard = document.querySelector('.keyboard');
-
 const lowerCase = document.querySelectorAll('.lower');
 const upperCase = document.querySelectorAll('.upper');
 const caps = document.querySelectorAll('.caps');
 const capsShift = document.querySelectorAll('.shift_caps');
 const ru = document.querySelectorAll('.ru');
 const en = document.querySelectorAll('.en');
-
-
 let isEn = true;
+
+let carriageNumber;
+let beforeCarriage = '';
+let afterCarriage = '';
+
+
+
+const code = [
+    ['Backquote', 'Digit1', 'Digit2', 'Digit3', 'Digit4', 'Digit5', 'Digit6', 'Digit7', 'Digit8', 'Digit9', 'Digit0', 'Minus', 'Equal', 'Backspace'],
+    ['Tab', 'KeyQ', 'KeyW', 'KeyE', 'KeyR', 'KeyT', 'KeyY', 'KeyU', 'KeyI', 'KeyO', 'KeyP', 'BracketLeft', 'BracketRight', 'Backslash', 'Delete'],
+    ['CapsLock', 'KeyA', 'KeyS', 'KeyD', 'KeyF', 'KeyG', 'KeyH', 'KeyJ', 'KeyK', 'KeyL', 'Semicolon', 'Quote', 'Enter'],
+    ['ShiftLeft', 'KeyZ', 'KeyX', 'KeyC', 'KeyV', 'KeyB', 'KeyN', 'KeyM', 'Comma', 'Period', 'Slash', 'ArrowUp', 'ShiftRight'],
+    ['ControlLeft', 'MetaLeft', 'AltLeft', 'Space', 'AltRight', 'ArrowLeft', 'ArrowDown', 'ArrowRight', 'ControlRight']
+]
+
+
+
+const wrapper = document.createElement('div');
+wrapper.classList.add('wrapper');
+const h1 = document.createElement('h1');
+h1.classList.add('title');
+h1.textContent = 'RSS Virtual Keyboard by ';
+const link = document.createElement('a');
+link.textContent = 'Raich94';
+link.setAttribute('href', 'https://github.com/Raich94');
+link.setAttribute('target', '_blank');
+h1.appendChild(link);
+wrapper.appendChild(h1);
+const textarea = document.createElement('textarea');
+textarea.classList.add('textarea');
+textarea.setAttribute('name', 'textarea');
+textarea.setAttribute('id', 'textarea');
+textarea.setAttribute('cols', '60');
+textarea.setAttribute('rows', '10');
+wrapper.appendChild(textarea);
+const keyboardWrapper = document.createElement('div');
+keyboardWrapper.classList.add('keyboard');
+
+
+wrapper.appendChild(keyboardWrapper);
+const description = document.createElement('p');
+description.classList.add('description');
+description.innerText = 'Клавиатура создана в операционной системе Windows';
+wrapper.appendChild(description);
+const language = document.createElement('p');
+language.classList.add('language');
+language.innerText = 'Для переключения языка комбинация: левые ctrl + alt';
+wrapper.appendChild(language);
+document.querySelector('body').appendChild(wrapper);
+
+
+
+
+
+
+
+
+
 
 getSettings();
 function changeLanguage() {
@@ -28,29 +82,18 @@ function changeLanguage() {
 changeLanguage()
 
 
-// function getCarriageNumber() {
-//     let carriageNumber;
-//     outputField.addEventListener("keydown", function () {
-//         carriageNumber = this.selectionStart;
-//     })
-//     return carriageNumber
-// }
-// console.log(getCarriageNumber())
-
-let carriageNumber;
-let beforeCarriage = '';
-let afterCarriage = '';
+// let carriageNumber;
+// let beforeCarriage = '';
+// let afterCarriage = '';
 outputField.addEventListener ("click", function () {
     carriageNumber = this.selectionStart;
+    // outputField.selectionEnd = carriageNumber;
     console.log(carriageNumber)
     beforeCarriage = outputField.value.slice(0, carriageNumber);
     afterCarriage = outputField.value.slice(carriageNumber, outputField.value.length);
     console.log(beforeCarriage);
     console.log(afterCarriage);
 });
-
-
-
 
 
 
@@ -140,7 +183,10 @@ document.addEventListener('keydown', function(event) {
     pressedButton.classList.toggle('_active');
 
     if (event.code == 'Tab') {
-        outputField.value += '    ';
+        // outputField.value += '    ';
+        beforeCarriage += '    ';
+        outputField.value = beforeCarriage + afterCarriage;
+        outputField.selectionEnd = beforeCarriage.length;
     } else if (event.code == 'CapsLock') {
         caps.forEach(el => el.classList.toggle('hidden'));
         lowerCase.forEach(el => el.classList.toggle('hidden'));
@@ -163,13 +209,23 @@ document.addEventListener('keydown', function(event) {
      else if (event.code == 'MetaLeft' || event.code == 'AltRight' || event.key == 'Control' || event.key == 'Alt') {
         outputField.value;
     } else if (event.code == 'Backspace') {
-        outputField.value = outputField.value.slice(0, outputField.value.length - 1);
+        // outputField.value = outputField.value.slice(0, outputField.value.length - 1);
+        beforeCarriage = beforeCarriage.slice(0, beforeCarriage.length - 1);
+        outputField.value = beforeCarriage + afterCarriage;
+        outputField.selectionEnd = beforeCarriage.length;
     } else if (event.code == 'Enter') {
-        outputField.value += '\n';
+        // outputField.value += '\n';
+        beforeCarriage += '\n';
+        outputField.value = beforeCarriage + afterCarriage;
+        outputField.selectionEnd = beforeCarriage.length;
     }else if (event.code == 'Delete') {
-        outputField.value;
+        afterCarriage = afterCarriage.slice(1, afterCarriage.length);
+        outputField.value = beforeCarriage + afterCarriage;
+        outputField.selectionEnd = beforeCarriage.length;
     } else {
-        outputField.value += pressedButton.innerText;
+        beforeCarriage += pressedButton.innerText;
+        outputField.value = beforeCarriage + afterCarriage;
+        outputField.selectionEnd = beforeCarriage.length;
     }
 })
 
@@ -194,7 +250,7 @@ document.addEventListener('keyup', function(event) {
     }
 })
 
-function getSettings() { //получаю из хранилища
+function getSettings() {
     const localStorageLanguage = localStorage.getItem('language');
     if (localStorageLanguage) {
         isEn = JSON.parse(localStorageLanguage);
