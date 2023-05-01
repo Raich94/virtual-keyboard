@@ -6,255 +6,147 @@
 .wrapper {
     width: 704px;
     margin: 0 auto;
-
-    /* border: 1px solid red; */
 }
+
 .hidden {
     display: none;
 }
+
 .title {
     text-align: center;
     color: #444444;
 }
+
 .title a {
     color: #444444;
 }
+
 .textarea {
     width: 100%;
     font-size: 18px;
 }
+
 .keyboard {
-    background-color: #888888;
+    background-color: #000000;
     border: 3px solid #222222;
     border-radius: 5px;
     padding: 5px 5px 0;
 }
+
 .keyboard__row {
     display: flex;
     justify-content: space-between;
     margin: 0 0 5px;
 }
+
 .keyboard__key {
     width: 40px;
     height: 40px;
-    background-color: #444444;
+    background-color: #777474;
     border-radius: 3px;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
     color: #ffffff;
+    font-weight: 500;
     transition: 0.1s;
 }
-/* .keyboard__key:hover {
-    background-color: aquamarine;
-}
-.keyboard__key:active {
-    background-color: #ab1515;
-    transform: scale(0.93, 0.93);
-} */
 
-
-.en {
-}
-.ru {
-}
-.lower {
-}
-.upper {
-}
-.caps {
-}
-.shift_caps {
-}
-
-
-
-
-.Backquote {
-}
-.Digit1 {
-}
-.Digit2 {
-}
-.Digit3 {
-}
-.Digit4 {
-}
-.Digit5 {
-}
-.Digit6 {
-}
-.Digit7 {
-}
-.Digit8 {
-}
-.Digit9 {
-}
-.Digit0 {
-}
-.Minus {
-}
-.Equal {
-}
 .keyboard__key.Backspace {
     width: 100px;
-    background-color: #000000;
+    background-color: #393636;
 }
 
 .keyboard__key.Tab {
     width: 50px;
-    background-color: #000000;
+    background-color: #393636;
 }
-.KeyQ {
-}
-.KeyW {
-}
-.KeyE {
-}
-.KeyR {
-}
-.KeyT {
-}
-.KeyY {
-}
-.KeyU {
-}
-.KeyI {
-}
-.KeyO {
-}
-.KeyP {
-}
-.BracketLeft {
-}
-.BracketRight {
-}
-.Backslash {
-}
+
 .keyboard__key.Delete {
     width: 44px;
-    background-color: #000000;
+    background-color: #393636;
 }
 
 .keyboard__key.CapsLock {
     width: 100px;
-    background-color: #000000;
+    background-color: #393636;
 }
-.KeyA {
-}
-.KeyS {
-}
-.KeyD {
-}
-.KeyF {
-}
-.KeyG {
-}
-.KeyH {
-}
-.KeyJ {
-}
-.KeyK {
-}
-.KeyL {
-}
-.Semicolon {
-}
-.Quote {
-}
+
 .keyboard__key.Enter {
     width: 86px;
-    background-color: #000000;
+    background-color: #393636;
 }
-
-
 
 .keyboard__key.ShiftLeft {
     width: 100px;
-    background-color: #000000;
+    background-color: #393636;
 }
-.KeyZ {
-}
-.KeyX {
-}
-.KeyC {
-}
-.KeyV {
-}
-.KeyB {
-}
-.KeyN {
-}
-.KeyM {
-}
-.Comma {
-}
-.Period {
-}
-.Slash {
-}
+
 .ArrowUp {
-    background-color: #000000;
+    background-color: #393636;
 }
+
 .keyboard__key.ShiftRight {
     width: 86px;
-    background-color: #000000;
+    background-color: #393636;
 }
-
 
 .keyboard__key.ControlLeft {
-    background-color: #000000;
+    background-color: #393636;
 }
+
 .keyboard__key.MetaLeft {
-    background-color: #000000;
+    background-color: #393636;
 }
+
 .keyboard__key.AltLeft {
-    background-color: #000000;
+    background-color: #393636;
 }
+
 .Space {
     width: 325px;
 }
+
 .keyboard__key.AltRight {
-    background-color: #000000;
+    background-color: #393636;
 }
+
 .ArrowLeft {
-    background-color: #000000;
+    background-color: #393636;
 }
+
 .ArrowDown {
-    background-color: #000000;
+    background-color: #393636;
 }
+
 .ArrowRight {
-    background-color: #000000;
+    background-color: #393636;
 }
+
 .keyboard__key.ControlRight {
-    background-color: #000000;
+    background-color: #393636;
 }
 
 .description {
     text-align: center;
     margin: 5px 0;
 }
+
 .language {
     text-align: center;
 }
 
-
-
-
-
-
 .keyboard__key:hover {
-    background-color: aquamarine;
+    background-color: rgb(129, 141, 137);
 }
+
 .keyboard__key:active {
-    /* background-color: #ab1515; */
     transform: scale(0.93, 0.93);
     border-radius: 20%;
 }
 
 ._active {
-    /* background-color: #ab1515; */
     transform: scale(0.93, 0.93);
     border-radius: 20%;
 }
